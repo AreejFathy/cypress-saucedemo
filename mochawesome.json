@@ -1,0 +1,374 @@
+{
+  "stats": {
+    "suites": 4,
+    "tests": 9,
+    "passes": 9,
+    "pending": 0,
+    "failures": 0,
+    "testsRegistered": 9,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false,
+    "start": "2025-11-28T16:56:24.338Z",
+    "end": "2025-11-28T16:56:57.236Z",
+    "duration": 32898
+  },
+  "results": [
+    {
+      "uuid": "cb1a06b4-3e94-4eef-a20b-6b396cf36095",
+      "title": "",
+      "fullFile": "cypress\\e2e\\checkout.cy.js",
+      "file": "cypress\\e2e\\checkout.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "5b547b19-66b7-4c61-bc84-1a05913ee166",
+          "title": "Checkout Tests",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "should complete checkout with valid data",
+              "fullTitle": "Checkout Tests should complete checkout with valid data",
+              "timedOut": null,
+              "duration": 2745,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "_CheckoutPage.default.startCheckout();\n_CheckoutPage.default.fillInformation('John', 'Doe', '12345');\n_CheckoutPage.default.finishCheckout();\n_CheckoutPage.default.verifyThankYouMessage();",
+              "err": {},
+              "uuid": "c1d02a12-fa3b-43b9-894e-6f5634138270",
+              "parentUUID": "5b547b19-66b7-4c61-bc84-1a05913ee166",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "should show error when required field is missing",
+              "fullTitle": "Checkout Tests should show error when required field is missing",
+              "timedOut": null,
+              "duration": 1350,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "_CheckoutPage.default.startCheckout();\ncy.get('[data-test=\"continue\"]').click();\n_CheckoutPage.default.getErrorMessage().should('contain', 'First Name is required');",
+              "err": {},
+              "uuid": "f6f93107-0495-4eda-958a-fcb19aa8599b",
+              "parentUUID": "5b547b19-66b7-4c61-bc84-1a05913ee166",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "c1d02a12-fa3b-43b9-894e-6f5634138270",
+            "f6f93107-0495-4eda-958a-fcb19aa8599b"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 4095,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    },
+    {
+      "uuid": "fab1a226-2a5e-4681-b0ae-5d49f7ebbc54",
+      "title": "",
+      "fullFile": "cypress\\e2e\\customScenario.cy.js",
+      "file": "cypress\\e2e\\customScenario.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "104dda42-0271-4528-a1c3-e5a3fff3cd4d",
+          "title": "Custom Scenario: Sort Products by Price",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "should sort products by price low to high and verify order",
+              "fullTitle": "Custom Scenario: Sort Products by Price should sort products by price low to high and verify order",
+              "timedOut": null,
+              "duration": 1875,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "_LoginPage.default.visit();\n_LoginPage.default.login(atob(Cypress.env('username')), atob(Cypress.env('password')));\n_ProductPage.default.verifyPageTitle();\n_ProductPage.default.sortByPriceLowToHigh();\n_ProductPage.default.getPrices().then(prices => {\n  const sortedPrices = [...prices].sort((a, b) => a - b);\n  expect(prices).to.deep.equal(sortedPrices);\n});",
+              "err": {},
+              "uuid": "11655cfb-b986-4337-bcc6-19043aa7b048",
+              "parentUUID": "104dda42-0271-4528-a1c3-e5a3fff3cd4d",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "11655cfb-b986-4337-bcc6-19043aa7b048"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 1875,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    },
+    {
+      "uuid": "13af60f8-e6aa-4082-9110-fc2a755bec09",
+      "title": "",
+      "fullFile": "cypress\\e2e\\login.cy.js",
+      "file": "cypress\\e2e\\login.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "a80c1cf1-37b4-482a-bcd2-e09ab92537d3",
+          "title": "Login Tests",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "should login successfully with valid credentials from env",
+              "fullTitle": "Login Tests should login successfully with valid credentials from env",
+              "timedOut": null,
+              "duration": 1329,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "const username = atob(Cypress.env('username')); // Decode Base64\nconst password = atob(Cypress.env('password'));\n_LoginPage.default.login(username, password);\ncy.url().should('include', '/inventory.html');\ncy.get('.title').should('have.text', 'Products');",
+              "err": {},
+              "uuid": "71d384ee-e289-4db4-b314-c7d7483e4365",
+              "parentUUID": "a80c1cf1-37b4-482a-bcd2-e09ab92537d3",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "should fail login with wrong username",
+              "fullTitle": "Login Tests should fail login with wrong username",
+              "timedOut": null,
+              "duration": 904,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "_LoginPage.default.login('wrong_user', 'secret_sauce');\n_LoginPage.default.getErrorMessage().should('contain', 'Username and password do not match');",
+              "err": {},
+              "uuid": "fb557fa5-df6e-43de-8c60-efec0ef3bdcc",
+              "parentUUID": "a80c1cf1-37b4-482a-bcd2-e09ab92537d3",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "should fail login with wrong password",
+              "fullTitle": "Login Tests should fail login with wrong password",
+              "timedOut": null,
+              "duration": 1083,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "_LoginPage.default.login('standard_user', 'wrong_pass');\n_LoginPage.default.getErrorMessage().should('contain', 'Username and password do not match');",
+              "err": {},
+              "uuid": "46e57c07-a996-4700-a973-7ec8a2396e7d",
+              "parentUUID": "a80c1cf1-37b4-482a-bcd2-e09ab92537d3",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "should fail login with locked_out_user",
+              "fullTitle": "Login Tests should fail login with locked_out_user",
+              "timedOut": null,
+              "duration": 897,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "_LoginPage.default.login('locked_out_user', 'secret_sauce');\n_LoginPage.default.getErrorMessage().should('contain', 'locked out');",
+              "err": {},
+              "uuid": "bde9a50f-b4d6-4985-b0bf-5991021b13cc",
+              "parentUUID": "a80c1cf1-37b4-482a-bcd2-e09ab92537d3",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "71d384ee-e289-4db4-b314-c7d7483e4365",
+            "fb557fa5-df6e-43de-8c60-efec0ef3bdcc",
+            "46e57c07-a996-4700-a973-7ec8a2396e7d",
+            "bde9a50f-b4d6-4985-b0bf-5991021b13cc"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 4213,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    },
+    {
+      "uuid": "cb6574a9-de3e-4754-91f1-63715c9963f7",
+      "title": "",
+      "fullFile": "cypress\\e2e\\cart.cy.js",
+      "file": "cypress\\e2e\\cart.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "982f02ee-6b5c-4b64-a7ad-5f2822d306dd",
+          "title": "Cart Tests",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "should add two items and verify cart badge = 2",
+              "fullTitle": "Cart Tests should add two items and verify cart badge = 2",
+              "timedOut": null,
+              "duration": 4046,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "_ProductPage.default.addItems(2);\n_ProductPage.default.getCartBadge().should('have.text', '2');",
+              "err": {},
+              "uuid": "4e93e196-880c-46fd-9902-f73c46b118ce",
+              "parentUUID": "982f02ee-6b5c-4b64-a7ad-5f2822d306dd",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "should remove one item and verify badge decrements",
+              "fullTitle": "Cart Tests should remove one item and verify badge decrements",
+              "timedOut": null,
+              "duration": 1696,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "_ProductPage.default.addItems(2);\n_ProductPage.default.goToCart();\ncy.get('.cart_item').should('have.length', 2);\ncy.get('.cart_item').first().find('.cart_button').click();\ncy.get('.cart_item').should('have.length', 1);",
+              "err": {},
+              "uuid": "f7db42f1-b643-4797-8340-e50e7609d4fd",
+              "parentUUID": "982f02ee-6b5c-4b64-a7ad-5f2822d306dd",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "4e93e196-880c-46fd-9902-f73c46b118ce",
+            "f7db42f1-b643-4797-8340-e50e7609d4fd"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 5742,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.2.0"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.4"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports",
+        "overwrite": false,
+        "html": false,
+        "json": true
+      },
+      "version": "6.3.2"
+    }
+  }
+}
